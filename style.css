@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Fondo inicial */
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -50,10 +50,23 @@ body {
     color: white;
     cursor: pointer;
     font-size: 1.2rem;
+    margin-left: 10px; /* Separación entre botones */
+    transition: transform 0.2s ease;
+}
+
+.search-box button:hover {
+    transform: scale(1.2);
+}
+
+#location-name {
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    opacity: 0.9;
 }
 
 .weather-visual img {
-    width: 150px;
+    width: 120px;
     filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
 }
 
@@ -68,3 +81,9 @@ body {
 }
 
 .detail-item i { font-size: 1.5rem; margin-bottom: 5px; }
+
+.not-found {
+    margin-top: 10px;
+    color: #ffcccc;
+    font-size: 0.9rem;
+}
