@@ -1,12 +1,11 @@
 const apiKey = "9f6eca41589b93e3b2d38e38da189a18";
 const searchBtn = document.getElementById('search-btn');
+const gpsBtn = document.getElementById('gps-btn');
 const cityInput = document.getElementById('city-input');
 
-// Esta función ahora acepta ciudad O coordenadas
 async function checkWeather(city, lat = null, lon = null) {
     let url;
     
-    // Si tenemos coordenadas, usamos la URL de coordenadas, si no, la de ciudad
     if (lat && lon) {
         url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&lang=es&appid=${apiKey}`;
     } else {
@@ -37,6 +36,8 @@ function updateUI(data) {
     document.getElementById('error-message').style.display = "none";
     document.getElementById('weather-card').style.opacity = "1";
     
+    // Mostramos Nombre de la ciudad/municipio y el País
+    document.getElementById('location-name').innerHTML = `${data.name}, ${data.sys.country}`;
     document.getElementById('temperature').innerHTML = `${Math.round(data.main.temp)}°C`;
     document.getElementById('description').innerHTML = data.weather[0].description;
     document.getElementById('humidity').innerHTML = `${data.main.humidity}%`;
@@ -46,7 +47,6 @@ function updateUI(data) {
     const body = document.body;
     const icon = document.getElementById('weather-icon');
 
-    // Mapeo dinámico de climas
     if(weatherMain.includes("cloud")) {
         body.style.background = "linear-gradient(135deg, #bdc3c7, #2c3e50)";
         icon.src = "https://cdn-icons-png.flaticon.com/512/414/414927.png"; 
@@ -62,31 +62,26 @@ function updateUI(data) {
     }
 }
 
-// NUEVA FUNCIÓN: Detectar ubicación por GPS
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 const lat = position.coords.latitude;
                 const lon = position.coords.longitude;
-                checkWeather(null, lat, lon); // Llama a la API con coordenadas
+                checkWeather(null, lat, lon);
             },
             (error) => {
-                console.warn("El usuario denegó el permiso de ubicación o hubo un error.");
-                // Opcional: Cargar una ciudad por defecto si el usuario dice que no
+                console.warn("Permiso denegado.");
                 checkWeather("Mexico City"); 
             }
         );
-    } else {
-        console.error("La geolocalización no es soportada por este navegador.");
     }
 }
 
-// Eventos
 searchBtn.addEventListener('click', () => checkWeather(cityInput.value));
+gpsBtn.addEventListener('click', getLocation); // Evento para el nuevo botón
 cityInput.addEventListener('keypress', (e) => {
     if(e.key === 'Enter') checkWeather(cityInput.value);
 });
 
-// Al cargar la página, intentar obtener ubicación automáticamente
 window.onload = getLocation;
