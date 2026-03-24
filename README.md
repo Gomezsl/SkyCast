@@ -14,5 +14,5 @@
 * **OpenWeather API**
 
 ## 📦 Instalación
-1. Clona el repositorio: `git clone https://github.com/tu-usuario/clima-app.git`
+1. Clona el repositorio: `https://gomezsl.github.io/SkyCast/`
 2. Abre `index.html` en tu navegador.
