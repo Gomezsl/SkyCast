@@ -11,6 +11,10 @@
 <body>
 
     <div class="container">
+        <div id="loader" class="loader-container" style="display: none;">
+            <div class="spinner"></div>
+        </div>
+
         <header class="search-box">
             <i class="fa-solid fa-location-dot"></i>
             <input type="text" id="city-input" placeholder="Ingresa una ciudad...">
@@ -19,13 +23,13 @@
         </header>
 
         <main class="weather-content" id="weather-card">
-            
             <div class="weather-visual">
-                <p id="local-time" style="font-size: 0.8rem; opacity: 0.8;"></p>
+                <p id="local-time" style="font-size: 0.8rem; opacity: 0.8; margin-bottom: 5px;"></p>
                 <h2 id="location-name">--</h2>
                 <img src="https://cdn-icons-png.flaticon.com/512/704/704845.png" alt="Estado del clima" id="weather-icon">
                 <h1 class="temp" id="temperature">--°C</h1>
-                <p class="description" id="description">Busca una ciudad para comenzar</p>
+                <p id="feels-like" style="font-size: 0.9rem; margin-bottom: 10px; opacity: 0.9;">Sensación: --°C</p>
+                <p class="description" id="description">Cargando datos...</p>
             </div>
 
             <div class="weather-details">
@@ -43,11 +47,17 @@
                         <p>Viento</p>
                     </div>
                 </div>
+                <div class="detail-item">
+                    <i class="fa-solid fa-gauge-high"></i>
+                    <div class="text">
+                        <span id="pressure">-- hPa</span>
+                        <p>Presión</p>
+                    </div>
+                </div>
             </div>
 
             <div class="forecast" id="forecast-container">
                 </div>
-
         </main>
 
         <div class="not-found" id="error-message" style="display: none;">
