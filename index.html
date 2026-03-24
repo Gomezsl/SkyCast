@@ -14,12 +14,14 @@
         <header class="search-box">
             <i class="fa-solid fa-location-dot"></i>
             <input type="text" id="city-input" placeholder="Ingresa una ciudad...">
+            <button id="gps-btn" title="Usar mi ubicación"><i class="fa-solid fa-crosshairs"></i></button>
             <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </header>
 
         <main class="weather-content" id="weather-card">
             
             <div class="weather-visual">
+                <h2 id="location-name">--</h2>
                 <img src="assets/images/default.png" alt="Estado del clima" id="weather-icon">
                 <h1 class="temp" id="temperature">--°C</h1>
                 <p class="description" id="description">Busca una ciudad para comenzar</p>
