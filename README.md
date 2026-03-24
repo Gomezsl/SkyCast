@@ -1,5 +1,5 @@
 # 🌤️ SkyCast - Dashboard de Clima Dinámico
-#https://gomezsl.github.io/SkyCast/
+#sitio web: https://gomezsl.github.io/SkyCast/
 
 ¡Bienvenido a SkyCast! Una aplicación web moderna que muestra el clima en tiempo real utilizando la API de OpenWeatherMap.
 
