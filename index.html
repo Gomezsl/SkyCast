@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast | Dashboard de Clima Dinámico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header class="search-box">
+            <i class="fa-solid fa-location-dot"></i>
+            <input type="text" id="city-input" placeholder="Ingresa una ciudad...">
+            <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </header>
+
+        <main class="weather-content" id="weather-card">
+            
+            <div class="weather-visual">
+                <img src="assets/images/default.png" alt="Estado del clima" id="weather-icon">
+                <h1 class="temp" id="temperature">--°C</h1>
+                <p class="description" id="description">Busca una ciudad para comenzar</p>
+            </div>
+
+            <div class="weather-details">
+                <div class="detail-item">
+                    <i class="fa-solid fa-droplet"></i>
+                    <div class="text">
+                        <span id="humidity">--%</span>
+                        <p>Humedad</p>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <i class="fa-solid fa-wind"></i>
+                    <div class="text">
+                        <span id="wind-speed">-- km/h</span>
+                        <p>Viento</p>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <div class="not-found" id="error-message" style="display: none;">
+            <p>Ciudad no encontrada, intenta de nuevo.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
